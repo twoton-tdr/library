@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="header-elements">
                 <li>TheOdinProject</li>
                 <li>My Library</li>
             </ul>
@@ -19,8 +20,8 @@
             <ul class="navigation-library">
                 <li><a href="">Home</a></li>
                 <li>
-                    <a href="">Genre</a>
-                        <ul class="Genre-dropdown">
+                    <a href="" class="sidebar-genre">Genre <span class="mdi--arrow-down-drop"></span></a>
+                        <ul class="genre-dropdown">
                             <li><a href="">Fictional</a></li>
                             <li><a href="">Scientific</a></li>
                             <li><a href="">Biography</a></li>
@@ -28,54 +29,22 @@
                         </ul>
                 </li>
             </ul>
-            <ul class="add-more">
-                <li><a href="" class="add">Add</a></li>
-                <li><a href="" class="remove">Remove</a></li>
+            <ul class="sidebar-add-remove">
+                <li class="sidebar-add" ><a href="">Add</a><span class="line-md--plus"></span></span></li>
+                <li class="sidebar-remove"><a href="" >Remove </a><span class="line-md--remove"></span></li>
             </ul>
         </div>
         <div class="main-content">
             <div class="book-card">
-                <div class="book-cover">
-                    <img src="" alt="">
-                </div>
                 <ul class="book-details">
                     <li class="book-name">Rich Dad Poor Dad</li>
-                    <li class="author">Robert K</li>
-                    <li class="genre">Financial</li>
-                </ul>
-                <ul class="read-status">
-                    <li class="ongoing" >Ongoing</li>
-                    <li class="book-status">Owned</li>
+                    <li class="book-cover"><img src="/images/no-image.png" alt="" srcset="" height="150px" width="150px"></li>
+                    <li class="author">Author: <span class="author-name">Robert k</span></li>
+                    <li class="genre">Genre: <span class="genre-name">Finance</span></li>
                 </ul>
             </div>
-            <div class="book-card">
-                <div class="book-cover">
-                    <img src="" alt="">
-                </div>
-                <ul class="book-details">
-                    <li class="book-name">Iqigai</li>
-                    <li class="author">Japanese author</li>
-                    <li class="genre">Personal Development</li>
-                </ul>
-                <ul class="read-status">
-                    <li class="not-started" >Not Started</li>
-                    <li class="book-status">Wish List</li>
-                </ul>
-            </div>
-            <div class="book-card">
-                <div class="book-cover">
-                    <img src="" alt="">
-                </div>
-                <ul class="book-details">
-                    <li class="book-name">Harry Potter</li>
-                    <li class="author">JK Rowling</li>
-                    <li class="genre">Fictional</li>
-                </ul>
-                <ul class="read-status">
-                    <li class="Read" >Read</li>
-                    <li class="book-status">Leased</li>
-                </ul>
-            </div>
+            
+
         </div>
     </main>
 </body>

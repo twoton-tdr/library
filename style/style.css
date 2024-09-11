@@ -1,0 +1,196 @@
+:root{
+    --charecter-color: #CAE9EA;
+    --secondary-color: #208C8C ;
+  }
+
+
+@font-face {
+    font-family: 'roboto';
+    src: url('/fonts/roboto-300-webfont.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'roboto';
+    src: url('/fonts/roboto-500-webfont.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'roboto';
+    src: url('/fonts/roboto-700-webfont.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  @font-face {
+    font-family: 'raleway';
+    src: url('/fonts/raleway-500-webfont.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'raleway';
+    src: url('/fonts/raleway-600-webfont.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+  
+  }
+  
+  
+  
+  
+  @font-face {
+    font-family: 'raleway';
+    src: url('/fonts/raleway-700-webfont.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  
+  }
+  
+  /* fonts end */
+
+  .line-md--plus::after {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: -0.35em;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23208C8C' stroke-dasharray='16' stroke-dashoffset='16' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M5 12h14'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='16;0'/%3E%3C/path%3E%3Cpath d='M12 5v14'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.4s' dur='0.4s' values='16;0'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .line-md--remove {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23208C8C' stroke-dasharray='24' stroke-dashoffset='24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M5 5l14 14'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='24;0'/%3E%3C/path%3E%3Cpath d='M19 5l-14 14'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.4s' dur='0.4s' values='24;0'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  }
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "roboto" , system-ui;
+    list-style-type: none;
+  }
+
+  body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  header{
+    background-color: var(--charecter-color);
+    padding: 10px 50px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+  .header-elements{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  main{
+    height: 94vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    
+  }
+  .sidebar{
+    
+    background-color: #4b8087;
+    
+    display: grid;
+    grid-template-rows: 1fr 1fr ;
+    padding: 10px;
+    
+  }
+  .sidebar a{
+    color: #CAE9EA;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 24px;
+  }
+  .genre-dropdown{
+    padding-left: 50px;
+  }
+  
+  .sidebar-genre{
+    display: flex;
+    align-items:center;
+  }
+  .sidebar-add , .sidebar-remove{
+    background-color: var(--charecter-color);
+    text-align: center;
+    border-radius: 16px;
+    padding: 10px;
+  }
+  .sidebar-add > a , .sidebar-remove > a {
+    color: var(--secondary-color);
+  }
+  .sidebar-add-remove{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sidebar-add-remove > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+  }
+  
+  /* main content */
+  .book-card{
+    height: 300px;
+    width: 240px;
+    background-color: #4b8087;
+    color: var(--charecter-color);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-content{
+
+    overflow-x: auto;
+    justify-content: space-around;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,240px);
+    gap: 20px;
+  }
+  .book-details , .read-status{
+    padding: 10px;
+  }
+  .book-name{
+    font-size: 24px;
+    text-align: center;
+  }
+  .book-cover{
+    display: grid;
+    justify-content: space-around;
+    padding: 10px;
+  }
