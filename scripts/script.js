@@ -13,7 +13,9 @@ const addButton = document.querySelector(".sidebar-add");
 addButton.addEventListener("click", ()=>{dialog.showModal();});
 
 const confirmButton = document.querySelector("dialog button");
-confirmButton.addEventListener('click', (e)=>{
+confirmButton.addEventListener('click', addNewBook)
+
+function addNewBook(e) {
     e.preventDefault();
     let bookName = document.querySelector("#book_name");
     bookName = bookName.value;
@@ -33,6 +35,4 @@ confirmButton.addEventListener('click', (e)=>{
     dialog.close();
     document.querySelector("dialog form").reset();
     console.log(myLibrary);
-})
-
-
+}
