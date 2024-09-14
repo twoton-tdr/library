@@ -192,8 +192,14 @@
   }
   .book-cover{
     display: grid;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: center;
+  }
+  .book-cover .img{
+    margin: 10px;
+    background-size: contain;
+    background-image: url(/images/no-image.png);
+    height: 150px;
+    width: 150px;
   }
 
   dialog{
