@@ -1,6 +1,7 @@
 :root{
     --charecter-color: #CAE9EA;
     --secondary-color: #208C8C ;
+    --background-color: #4b8087;
   }
 
 
@@ -120,7 +121,7 @@
   }
   .sidebar{
     
-    background-color: #4b8087;
+    background-color: var(--background-color);
     
     display: grid;
     grid-template-rows: 1fr 1fr ;
@@ -166,7 +167,7 @@
   .book-card{
     height: 300px;
     width: 240px;
-    background-color: #4b8087;
+    background-color: var(--background-color);
     color: var(--charecter-color);
     border-radius: 30px;
     display: flex;
@@ -194,3 +195,62 @@
     justify-content: space-around;
     padding: 10px;
   }
+
+  dialog{
+    border: none;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 320px;
+    height: 320px;
+    padding: 20px;
+    background-color: var(--charecter-color);
+
+  }
+
+  .input-element{
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary-color);
+    padding: 4px 0px;
+  }
+  dialog input{
+    border-radius: 20px;
+    height: 32px;
+    border: none;
+    padding: 8px;
+    color: var(--secondary-color);
+  }
+  dialog input::placeholder{
+    padding: 8px;
+    opacity: 0.5;
+  }
+  dialog input:focus::placeholder{
+    opacity: 0;
+  }
+  dialog input:focus{
+    outline: none;
+    border: solid 2px var(--background-color);
+  }
+  dialog button{
+    margin-top: 20px;
+    height: 32px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--background-color);
+    color: var(--charecter-color);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .heading-dialog{
+    font-size: 2rem;
+    color: var(--secondary-color);
+    text-align: center;
+  }
+
+  dialog::backdrop{
+    background-color: var(--background-color);
+    opacity: 0.6;
+  }
+  

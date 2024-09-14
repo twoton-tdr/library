@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
     <link rel="stylesheet" href="/style/style.css">
+    <script src="/scripts/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -47,5 +48,27 @@
 
         </div>
     </main>
+
+    <dialog>
+        <div class="heading-dialog">Add Book</div>
+        <form action="">
+            <div class="form">
+                <div class="input-element input-name">
+                    <label for="book_name">Name:</label>
+                    <input type="text" id="book_name" name="book_name" placeholder="Rich Dad Poor Dad">
+                </div>
+                <div class="input-element input-author">
+                    <label for="author_name">Author:</label>
+                    <input type="text" id="author_name" name="author_name" placeholder="Robert K">
+                </div>
+                <div class="input-element input-genre">
+                    <label for="genre_n">Genre:</label>
+                    <input type="text" id="genre_n" name="genre" placeholder="Personal finance">
+                </div>
+            </div>
+            <button type="submit">Done</button>
+        </form>
+
+    </dialog>
 </body>
 </html>
