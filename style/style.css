@@ -183,7 +183,7 @@
     grid-template-columns: repeat(auto-fit,240px);
     gap: 20px;
   }
-  .book-details , .read-status{
+  .book-details{
     padding: 10px;
   }
   .book-name{
@@ -202,6 +202,19 @@
     width: 150px;
   }
 
+  .read-status select{
+    background-color: var(--charecter-color);
+    color: var(--secondary-color);
+  }
+
+  .read-status select option[value="notstarted"]{
+    color: red;
+  }
+
+  .read-status select option[value="ongoing"]{
+    color: green;
+  }
+
   dialog{
     border: none;
     top: 0;
@@ -213,6 +226,7 @@
     background-color: var(--charecter-color);
 
   }
+
 
   .input-element{
     display: flex;

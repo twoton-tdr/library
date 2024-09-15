@@ -6,6 +6,7 @@ function Book(name, author, genre) {
     this.name = name;
     this.author = author;
     this.genre = genre;
+    this["read"];
 }
 
 Book.prototype.newCard = function() {
@@ -47,6 +48,31 @@ Book.prototype.newCard = function() {
     bookgenre.appendChild(bookGenreSpan);
     bookGenreSpan.textContent = this.genre;
 
+    const readStatus = document.createElement("li");
+    readStatus.classList.add("read-status");
+    bookDetails.appendChild(readStatus);
+    readStatus.textContent = "Read Status: ";
+    const statusSelect = document.createElement("select");
+    statusSelect.id = "read-select";
+    statusSelect.name = "read status";
+    readStatus.appendChild(statusSelect);
+
+    const notStarted = document.createElement("option");
+    notStarted.value = "notstarted";
+    notStarted.textContent = "Not yet Started";
+    statusSelect.appendChild(notStarted);
+
+    const ongoing = document.createElement("option");
+    ongoing.value = "ongoing";
+    ongoing.textContent = "Ongoing";
+    statusSelect.appendChild(ongoing);
+
+    //storing read status
+    statusSelect.addEventListener("click",()=>{
+        this.read=statusSelect.value;
+    });
+
+    
 } 
 
 const dialog = document.querySelector("dialog");
