@@ -105,3 +105,21 @@ function addNewBook(e) {
     document.querySelector("dialog form").reset();
     console.log(myLibrary);
 }
+
+//removing function
+const removeBtn = document.querySelector(".sidebar-remove");
+removeBtn.addEventListener("click",removeButton);
+function removeButton(){
+    const bookremove = document.querySelectorAll(".book-card");
+    for(let i=0;i<bookremove.length;i++){
+        bookremove[i].classList.add("book-remove");
+        bookremove[i].addEventListener("click",()=>{
+            bookremove[i].style.display = "none";
+        })
+    }
+
+    const bookSelect = document.querySelectorAll(".book-details");
+    for(let b=0; b<bookSelect.length;b++){
+        bookSelect[b].classList.add("book-select");
+    }
+}

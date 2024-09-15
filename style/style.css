@@ -215,6 +215,19 @@
     color: green;
   }
 
+  .book-select{
+    opacity: .2;
+  }
+  .book-remove::after{
+    content: "x";
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    position: relative;
+    bottom: 260px;
+    margin: auto;
+    font-size: 160px;
+  }
+
   dialog{
     border: none;
     top: 0;
