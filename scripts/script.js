@@ -112,38 +112,58 @@ function addNewBook(e) {
 const removeBtn = document.querySelector(".sidebar-remove");
 removeBtn.addEventListener("click",removeButton);
 
-
-
+let isRemoving = false;
 function removeButton(){
 
+    isRemoving = !isRemoving;
 
     const bookremove = document.querySelectorAll(".book-card");
-
     const bookSelect = document.querySelectorAll(".book-details");
 
-    for(let b=0; b<bookSelect.length;b++){
+    if(isRemoving){
+
+        for(let b=0; b<bookSelect.length;b++){
         
-        bookSelect[b].classList.add("book-select"); // gives blur (opacity to card)
+            bookSelect[b].classList.add("book-select"); // gives blur (opacity to card)
+    
+        }
+
+        for(let i=0;i<bookremove.length;i++){
+
+
+            bookremove[i].classList.add("book-remove"); //to add select icon
+    
+            bookremove[i].addEventListener("click",removeBook);
+        }
 
     }
+    else{
+        for(let b=0; b<bookSelect.length;b++){
+        
+            bookSelect[b].classList.remove("book-select"); // gives blur (opacity to card)
+    
+        }
+
+        for(let i=0;i<bookremove.length;i++){
 
 
-    for(let i=0;i<bookremove.length;i++){
-
-
-        bookremove[i].classList.add("book-remove"); //to add select icon
-
-        bookremove[i].addEventListener("click",()=>{
-            const bookName = bookremove[i].querySelector(".book-name").textContent;
-            for(let k = 0; k < myLibrary.length;k++){
-                
-                if(bookName === myLibrary[k].name){
-                    myLibrary.splice(k,1); //removes the data from the array
-                    bookremove[i].remove(); //remove the dom containing the deleted book
-                }
-            }
-        })
+            bookremove[i].classList.remove("book-remove"); //to add select icon
+    
+            bookremove[i].removeEventListener("click",removeBook)
+        }
     }
 
+}
 
+function removeBook(e){
+
+    const bookName = e.target.querySelector(".book-name").textContent;
+
+    for(let k = 0; k < myLibrary.length;k++){
+        
+        if(bookName === myLibrary[k].name){
+            myLibrary.splice(k,1); //removes the data from the array
+            e.target.remove(); //remove the dom containing the deleted book
+        }
+    }
 }
