@@ -98,28 +98,52 @@ function addNewBook(e) {
     window[bookName] = new Book(bookName, authorName, genre); //creating global variable containing content inside the bookName
     window[bookName].newCard();
 
-    console.log(window[bookName])
 
     myLibrary.push(window[bookName]);
     dialog.close();
     document.querySelector("dialog form").reset();
-    console.log(myLibrary);
 }
+
+
+
+
 
 //removing function
 const removeBtn = document.querySelector(".sidebar-remove");
 removeBtn.addEventListener("click",removeButton);
+
+
+
 function removeButton(){
+
+
     const bookremove = document.querySelectorAll(".book-card");
+
+    const bookSelect = document.querySelectorAll(".book-details");
+
+    for(let b=0; b<bookSelect.length;b++){
+        
+        bookSelect[b].classList.add("book-select"); // gives blur (opacity to card)
+
+    }
+
+
     for(let i=0;i<bookremove.length;i++){
-        bookremove[i].classList.add("book-remove");
+
+
+        bookremove[i].classList.add("book-remove"); //to add select icon
+
         bookremove[i].addEventListener("click",()=>{
-            bookremove[i].style.display = "none";
+            const bookName = bookremove[i].querySelector(".book-name").textContent;
+            for(let k = 0; k < myLibrary.length;k++){
+                
+                if(bookName === myLibrary[k].name){
+                    myLibrary.splice(k,1); //removes the data from the array
+                    bookremove[i].remove(); //remove the dom containing the deleted book
+                }
+            }
         })
     }
 
-    const bookSelect = document.querySelectorAll(".book-details");
-    for(let b=0; b<bookSelect.length;b++){
-        bookSelect[b].classList.add("book-select");
-    }
+
 }
