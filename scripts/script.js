@@ -1,85 +1,90 @@
 let myLibrary = [];
 
 const mainContent = document.querySelector(".main-content");
+let isRemoving = false;
+class Book {
+    constructor(name, author, genre){
+        this.name = name;
+        this.author = author;
+        this.genre = genre;
+        this["read"];
+    }
+    newCard(){
+        const bookCard = document.createElement('div');
+        bookCard.classList.add("book-card");
+        mainContent.appendChild(bookCard);
 
-function Book(name, author, genre) {
-    this.name = name;
-    this.author = author;
-    this.genre = genre;
-    this["read"];
+        const bookDetails = document.createElement("ul");
+        bookDetails.classList.add("book-details");
+        bookCard.appendChild(bookDetails);
+
+        const bookName = document.createElement("li");
+        bookName.classList.add("book-name");
+        bookDetails.appendChild(bookName)
+        bookName.textContent = this.name;
+
+        const bookCover = document.createElement("li")
+        bookCover.classList.add("book-cover");
+        bookDetails.appendChild(bookCover);
+        const bookCoverImage = document.createElement("div");
+        bookCoverImage.classList.add("img");
+        bookCover.appendChild(bookCoverImage);
+
+        const bookAuthor = document.createElement("li");
+        bookAuthor.classList.add("author");
+        bookDetails.appendChild(bookAuthor);
+        bookAuthor.textContent = "Author: ";
+        const bookAuthorSpan = document.createElement("span");
+        bookAuthorSpan.classList.add("author-name");
+        bookAuthor.appendChild(bookAuthorSpan);
+        bookAuthorSpan.textContent = this.author;
+
+        const bookgenre = document.createElement("li")
+        bookgenre.classList.add("genre");
+        bookDetails.appendChild(bookgenre);
+        bookgenre.textContent = "Genre: "
+        const bookGenreSpan = document.createElement("span");
+        bookGenreSpan.classList.add("genre-name");
+        bookgenre.appendChild(bookGenreSpan);
+        bookGenreSpan.textContent = this.genre;
+
+        const readStatus = document.createElement("li");
+        readStatus.classList.add("read-status");
+        bookDetails.appendChild(readStatus);
+        readStatus.textContent = "Read Status: ";
+        const statusSelect = document.createElement("select");
+        statusSelect.id = "read-select";
+        statusSelect.name = "read status";
+        readStatus.appendChild(statusSelect);
+
+        const notStarted = document.createElement("option");
+        notStarted.value = "notstarted";
+        notStarted.textContent = "Not yet Started";
+        statusSelect.appendChild(notStarted);
+
+        const ongoing = document.createElement("option");
+        ongoing.value = "ongoing";
+        ongoing.textContent = "Ongoing";
+        statusSelect.appendChild(ongoing);
+
+        //storing read status
+        statusSelect.addEventListener("click",()=>{
+            this.read=statusSelect.value;
+        });
+
+    }
 }
 
-Book.prototype.newCard = function() {
-    const bookCard = document.createElement('div');
-    bookCard.classList.add("book-card");
-    mainContent.appendChild(bookCard);
-
-    const bookDetails = document.createElement("ul");
-    bookDetails.classList.add("book-details");
-    bookCard.appendChild(bookDetails);
-
-    const bookName = document.createElement("li");
-    bookName.classList.add("book-name");
-    bookDetails.appendChild(bookName)
-    bookName.textContent = this.name;
-
-    const bookCover = document.createElement("li")
-    bookCover.classList.add("book-cover");
-    bookDetails.appendChild(bookCover);
-    const bookCoverImage = document.createElement("div");
-    bookCoverImage.classList.add("img");
-    bookCover.appendChild(bookCoverImage);
-
-    const bookAuthor = document.createElement("li");
-    bookAuthor.classList.add("author");
-    bookDetails.appendChild(bookAuthor);
-    bookAuthor.textContent = "Author: ";
-    const bookAuthorSpan = document.createElement("span");
-    bookAuthorSpan.classList.add("author-name");
-    bookAuthor.appendChild(bookAuthorSpan);
-    bookAuthorSpan.textContent = this.author;
-
-    const bookgenre = document.createElement("li")
-    bookgenre.classList.add("genre");
-    bookDetails.appendChild(bookgenre);
-    bookgenre.textContent = "Genre: "
-    const bookGenreSpan = document.createElement("span");
-    bookGenreSpan.classList.add("genre-name");
-    bookgenre.appendChild(bookGenreSpan);
-    bookGenreSpan.textContent = this.genre;
-
-    const readStatus = document.createElement("li");
-    readStatus.classList.add("read-status");
-    bookDetails.appendChild(readStatus);
-    readStatus.textContent = "Read Status: ";
-    const statusSelect = document.createElement("select");
-    statusSelect.id = "read-select";
-    statusSelect.name = "read status";
-    readStatus.appendChild(statusSelect);
-
-    const notStarted = document.createElement("option");
-    notStarted.value = "notstarted";
-    notStarted.textContent = "Not yet Started";
-    statusSelect.appendChild(notStarted);
-
-    const ongoing = document.createElement("option");
-    ongoing.value = "ongoing";
-    ongoing.textContent = "Ongoing";
-    statusSelect.appendChild(ongoing);
-
-    //storing read status
-    statusSelect.addEventListener("click",()=>{
-        this.read=statusSelect.value;
-    });
-
-    
-} 
 
 const dialog = document.querySelector("dialog");
 
 
 const addButton = document.querySelector(".sidebar-add");
-addButton.addEventListener("click", ()=>{dialog.showModal();});
+addButton.addEventListener("click", ()=>{
+    dialog.showModal();
+    isRemoving = true;
+    removeButton();
+});
 
 const confirmButton = document.querySelector("dialog button");
 confirmButton.addEventListener('click', addNewBook)
@@ -112,7 +117,7 @@ function addNewBook(e) {
 const removeBtn = document.querySelector(".sidebar-remove");
 removeBtn.addEventListener("click",removeButton);
 
-let isRemoving = false;
+
 function removeButton(){
 
     isRemoving = !isRemoving;
